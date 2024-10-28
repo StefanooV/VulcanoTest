@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VulcanoTest</name>
+    </assembly>
+    <members>
+        <member name="T:VulcanoTest.Services.IProductService">
+            <summary>
+            Interfaz que define las operaciones de servicio para productos
+            </summary>
+        </member>
+        <member name="M:VulcanoTest.Services.IProductService.GetProducts">
+            <summary>
+            Obtiene una lista de todos los productos
+            </summary>
+            <returns>Lista de productos del tipo <see cref="T:VulcanoTest.DTO.ProductDTO"/></returns>
+        </member>
+        <member name="M:VulcanoTest.Services.IProductService.GetProductsById(System.String)">
+            <summary>
+            Obtiene un producto por su ID.
+            </summary>
+            <param name="id">El resultado contiene el <see cref="T:VulcanoTest.DTO.ProductDTO"/> al ID proporcionado</param>
+            <returns></returns>
+        </member>
+        <member name="T:VulcanoTest.Controllers.ProductApiController">
+            <summary>
+            Controlador para gestionar operaciones relacionadas con productos.
+            </summary>
+        </member>
+        <member name="M:VulcanoTest.Controllers.ProductApiController.#ctor(VulcanoTest.Services.IProductService)">
+            <summary>
+            Inicializa un nueva instancia del controlador
+            </summary>
+            <param name="productService">Servicio que gestiona la lógica de negocio de productos</param>
+        </member>
+        <member name="M:VulcanoTest.Controllers.ProductApiController.Get">
+            <summary>
+            Obtiene todos los productos.
+            </summary>
+            <returns>Lista de productos</returns>
+            <response code="200">Lista de productos obtenida con éxito</response>
+            <response code="500">Error al obtener la lista de productos</response>
+        </member>
+        <member name="M:VulcanoTest.Controllers.ProductApiController.Get(System.String)">
+            <summary>
+            Obtiene un producto por su ID.
+            </summary>
+            <param name="id">ID del producto</param>
+            <returns>Producto con el ID especificado</returns>
+            <response code="200">Producto buscado y obtenido con éxito</response>
+            <response code="404">Producto no encontrado</response>
+            <response code="500">Error al obtener el producto</response>
+        </member>
+        <member name="M:VulcanoTest.Controllers.ProductApiController.Create(VulcanoTest.DTO.ProductDTO)">
+            <summary>
+            Crear un  nuevo producto
+            </summary>
+            <param name="productDTO">Objeto del producto a crear</param>
+            <returns>El producto creado. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+            <response code="201">Producto creado con éxito.</response>
+            <response code="400">Datos de entrada inválidos.</response>
+            <response code="500">Error al crear el producto.</response>
+        </member>
+        <member name="M:VulcanoTest.Controllers.ProductApiController.Update(System.String,VulcanoTest.DTO.ProductDTO)">
+            <summary>
+            Actualiza un producto existente
+            </summary>
+            <param name="id">ID del producto a actualizar</param>
+            <param name="productDTO">Los datos del producto a actualizar</param>
+            <returns>El producto actualizado <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+            <response code="200">Producto actualizado con éxito.</response>
+            <response code="400">Datos de entrada inválidos.</response>
+            <response code="404">Producto no encontrado.</response>
+            <response code="500">Error al actualizar el producto.</response>
+        </member>
+        <member name="M:VulcanoTest.Controllers.ProductApiController.Delete(System.String)">
+            <summary>
+            Elimina un producto por su ID
+            </summary>
+            <param name="id">ID del producto a eliminar</param>
+            <response code="200">Producto eliminado con éxito.</response>
+            <response code="404">Producto no encontrado.</response>
+            <response code="500">Error al eliminar el producto.</response>
+        </member>
+    </members>
+</doc>
